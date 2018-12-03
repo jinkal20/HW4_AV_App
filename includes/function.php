@@ -1,8 +1,8 @@
 <?php
 include 'connect.php';
 
-function get_single_video($pdo, $kids_id) {
-    $query = "SELECT * FROM kids WHERE id = '$kids_id'";
+function get_all_data($pdo) {
+    $query = "SELECT * FROM tbl_kids";
 
     $get_video = $pdo->query($query);
     $results = array();
@@ -15,6 +15,4 @@ function get_single_video($pdo, $kids_id) {
 
     return $results;
 }
-
-
 ?>
