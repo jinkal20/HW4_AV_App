@@ -10,11 +10,11 @@
 </head>
 <body>
     <main id="app">
-        <h4 class="welcome-message">{{ mainmessage }}</h4>
+        <h1 class="welcome-message" id="message">{{ mainmessage }}</h1>
         <ul>
             <li v-for="video in videodata">
-            <div class="small-12 columns info" v-for="video in videodata">{{ video.Rating }}</div>
             <img :src="'images/'+ video.kids_gallery" alt="">
+            <div class="info" v-for="video in videodata">{{ video.Rating }}</div>
         </li>
     </ul>
     </main>
