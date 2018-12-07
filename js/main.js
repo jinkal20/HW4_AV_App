@@ -4,8 +4,8 @@
         el: '#app',
         data: {
             mainmessage : "kids page",
-            videodata: [],
-            singlemoviedata: [],
+            kidsdata: [],
+            singleavappdata: [],
             kidsdescription :"",
             showDetails : false
         },
@@ -13,17 +13,17 @@
             this.fetchKidsData(null);
         },
         methods : {
-            fetchKidsData(movie) {
-                url = movie ? `./includes/index.php?movie=${movie}` : './includes/index.php';
+            fetchKidsData(avapp) {
+                url = avapp ? `./includes/index.php?avapp=${avapp}` : './includes/index.php';
                 fetch(url)
                 .then(res => res.json())
                 .then(data => {
-                    if (movie){
+                    if (avapp){
                         console.log(data);
-                        this.singlemoviedata =data;
+                        this.singleavappdata =data;
                     } else {
                         console.log(data);
-                        this.videodata =data;
+                        this.kidsdata =data;
                     }
                 })
             }

@@ -12,9 +12,9 @@
     <main id="app">
         <h1 class="welcome-message" id="message">{{ mainmessage }}</h1>
         <ul>
-            <li v-for="video in videodata">
+            <li v-for="video in kidsdata">
             <img :src="'images/'+ video.kids_gallery" alt="">
-            <div class="info" v-for="video in videodata">{{ video.Rating }}</div>
+            <div class="info" v-for="video in kidsdata">{{ video.Rating }}</div>
         </li>
     </ul>
     </main>
