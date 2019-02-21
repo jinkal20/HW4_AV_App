@@ -1,23 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="css/main.css">
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
-    <title>Roku App</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>ROKU</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.22/dist/vue.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.5.3/css/foundation-float.min.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="css/main.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue-router/3.0.2/vue-router.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.5.3/js/foundation.min.js.map"></script>
 </head>
 <body>
-    <main id="app">
-        <h1 class="welcome-message" id="message">{{ mainmessage }}</h1>
-        <ul>
-            <li v-for="video in kidsdata">
-            <img :src="'images/'+ video.kids_gallery" alt="">
-            <div class="info" v-for="video in kidsdata">{{ video.Rating }}</div>
-        </li>
-    </ul>
-    </main>
-    <script src="js/main.js"></script>
+        <main id="app">
+            <ul class="menu row expanded">
+                <li class="links small-2"><router-link :to="{ path: '/'}" class="links">Home</router-link></li>
+                <li class="links small-2"><router-link :to="{ path: 'users'}" class="links">Users</router-link></li>
+                <li class="links small-2"><router-link :to="{ path: 'user'}" class="links">User</router-link></li>
+            </ul>
+                <router-view></router-view>
+        </main>
+ <script src="js/main.js"></script>
 </body>
 </html>
