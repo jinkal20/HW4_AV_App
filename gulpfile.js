@@ -1,30 +1,13 @@
-//references the required packages to make task running work
-var gulp = require('gulp');
-var sass = require('gulp-sass');
-var browserSync = require('browser-sync').create();
+const gulp = require('gulp');
+const sass = require('gulp-sass');
+const livereload = require('gulp-livereload');
 
-// start writing your task
-
-//serve the page with browsersync
-gulp.task('serve', function(){
-    browserSync.init({
-        server: {
-            baseDir: './',
-            index: 'index.html'
-        }
-    })
+gulp.task('sass', function() {
+    return gulp.src('./sass/**/*.scss')
+        .pipe(sass({ outputStyle: "compressed" }))
+        .pipe(gulp.dest('./css'))
 })
 
-//compile sass
-gulp.task('sass', function(){
-    //define the gulp-sass task
-    return gulp.src('./sass/**/*.scss')
-    .pipe(sass({outputstyle : "compressed"}).on('error', sass.logError))
-    .pipe(gulp.dest('./css'))
-});
-
-//watch sass files for changes, compile
-
-gulp.task('sass:watch', function () {
-    gulp.watch('./sass/**/*.scss', ['sass']);
-  });
+gulp.task('watch', function() {
+    gulp.watch('./sass/**/*.scss'), ['sass'];
+})
