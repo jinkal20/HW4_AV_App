@@ -11,6 +11,11 @@
     font-weight: bolder; 
 }
 
+#effect:hover{
+    transition-duration: 2s;
+    opacity: 0.6;
+    transform: scale(1.1); 
+}
 .media-details { font-size: 1.2em; padding: 0.5em 0; }
 
 .media-year, .media-time { font-size: 1em; }

@@ -5,33 +5,33 @@ export default {
     <div class="container">
     <!-- render this if we're viewing television or film -->
         <div class="row" v-if="activeMediaType == 'video' && retrievedMedia.length > 0">
-            <div class="col-3 order-2 order-md-1 col-md-3 media-container">
+            <div class="col-3 order-2 order-md-1 col-md-12 media-container">
                 <h4 class="media-title">{{currentMediaDetails.movies_title}}</h4>
                 <p class="media-details" v-html="currentMediaDetails.movies_storyline"></p>
                 <span class="media-time">{{currentMediaDetails.movies_runtime}}</span>
                 <span class="media-year">Released in {{currentMediaDetails.movies_year}}</span>
             </div>
 
-            <div class="col-12 order-1 order-md-2 col-md-9 media-container">
+            <div class="col-12 order-1 order-md-2 col-md-12 media-container">
                 <video autoplay controls muted :src="'video/' + currentMediaDetails.movies_trailer" class="fs-video"></video>
             </div>
         </div>
 
         <div class="row" v-if="activeMediaType == 'audio' && retrievedMedia.length > 0">
-            <div class="col-12 order-2 order-md-1 col-md-6 media-container">
+            <div class="col-12 order-2 order-md-1 col-md-12 media-container">
                 <h4 class="media-title">{{currentMediaDetails.audio_artist}} * {{currentMediaDetails.audio_title}}</h4>
                 <p class="media-details" v-html="currentMediaDetails.audio_storyline"></p>
                 <span class="media-year">Released in {{currentMediaDetails.audio_year}}</span>              
             </div>
 
-            <div class="col-12 order-1 order-md-2 col-md-6 audio-wrapper">
+            <div class="col-12 order-1 order-md-2 col-md-12 audio-wrapper">
                 <audio autoplay controls :src="'audio/' + currentMediaDetails.audio_src"/>
                 <img :src="'images/audio/' + currentMediaDetails.audio_cover" alt="album art" class="img-fluid"/>
             </div>
         </div>
 
         <div class="row"> <!-- 2-up for nav and media info -->
-            <nav class="col-12 col-sm-3 side-nav">
+            <nav class="col-12 col-sm-3  col-md-12 side-nav">
                 <ul class="media-type">
                     <li v-for="media in mediaTypes" :data-type="media.description" @click="loadMedia(null, media.description)">
                         <span>
@@ -43,7 +43,7 @@ export default {
                 </ul>
             </nav>
 
-            <div class="col-12 col-sm-9 media-info">
+            <div class="col-12 col-sm-12 media-info">
                 <!-- genres for video -->
                     <ul v-if="activeMediaType == 'video'" class="media-genres">
                         <li>
@@ -82,8 +82,8 @@ export default {
                         </li>
                     </ul>
                 <div class="thumb-wrapper clearfix">
-                    <img v-if="activeMediaType == 'video'" v-for="media in retrievedMedia" :src="'images/video/' + media.movies_cover" alt="media thumb" @click="switchActiveMedia(media)" class="img-thumbnail rounded float-left media-thumb">
-                    <img v-if="activeMediaType == 'audio'" v-for="media in retrievedMedia" :src="'images/audio/' + media.audio_cover" alt="media thumb" @click="switchActiveMedia(media)" class="img-thumbnail rounded float-left media-thumb audio-thumb">
+                    <img v-if="activeMediaType == 'video'" v-for="media in retrievedMedia" :src="'images/video/' + media.movies_cover" alt="media thumb" @click="switchActiveMedia(media)" class="img-thumbnail rounded float-left media-thumb" id="effect">
+                    <img v-if="activeMediaType == 'audio'" v-for="media in retrievedMedia" :src="'images/audio/' + media.audio_cover" alt="media thumb" @click="switchActiveMedia(media)" class="img-thumbnail rounded float-left media-thumb audio-thumb" id="effect">
                 </div>
             </div>       
         </div> <!-- end 2-up for media info -->
