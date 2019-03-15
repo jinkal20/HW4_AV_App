@@ -36,10 +36,6 @@ const vm = new Vue({
   },
 
   created: function() {
-    // do a session check and set authenticated to true if the session still exists
-    // if the cached user exists, then just navigate to their user home page
-
-    // the localstorage session will persist until logout
 
     if (localStorage.getItem("cachedUser")) {
       let user = JSON.parse(localStorage.getItem("cachedUser"));
@@ -58,7 +54,7 @@ const vm = new Vue({
     },
 
     popError(errorMsg) {
-      // set the error message string and show the toast notification
+
       this.toastmessage = errorMsg;
       $('.toast').toast('show');
     },

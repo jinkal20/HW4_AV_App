@@ -5,7 +5,7 @@ export default {
     <div class="container">
     <!-- render this if we're viewing television or film -->
         <div class="row" v-if="activeMediaType == 'video' && retrievedMedia.length > 0">
-            <div class="col-12 order-2 order-md-1 col-md-3 media-container">
+            <div class="col-3 order-2 order-md-1 col-md-3 media-container">
                 <h4 class="media-title">{{currentMediaDetails.movies_title}}</h4>
                 <p class="media-details" v-html="currentMediaDetails.movies_storyline"></p>
                 <span class="media-time">{{currentMediaDetails.movies_runtime}}</span>
