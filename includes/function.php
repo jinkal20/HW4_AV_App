@@ -1,18 +1,42 @@
 <?php
-include 'connect.php';
+    include 'connect.php';
+    function validate_login($pdo,$user,$password){
+        $query ="SELECT * FROM users WHERE first_name='user'";
 
-function get_all_data($pdo) {
-    $query = "SELECT * FROM tbl_kids";
-
-    $get_video = $pdo->query($query);
-    $results = array();
-
-    while($row = $get_video->fetch(PDO::FETCH_ASSOC)) {
-        $results[] = $row;
-
-        // you could run subresult queries here - just write another function and append.
+        $get_user =$pdo->query($query);
+        $results = array();
+        While($row = $get_user->fetch(PDO::FETCH_ASSOC)) {
+            if($row['password']== $password){
+                $row['password']='xxxxxxxx';
+                $results[]=$row;
+            }else{
+                $results = "false";
+            }
+            
+        }
+        return $results;
     }
 
-    return $results;
-}
+    function get_single_user($pdo,$user){
+        $query ="SELECT * FROM users WHERE id='$user'";
+
+        $get_user =$pdo->query($query);
+        $results = array();
+        While($row = $get_user->fetch(PDO::FETCH_ASSOC)) {
+            $results[]=$row;
+        }
+        return $results;
+    }
+
+    function get_all_user($pdo){
+        $query ="SELECT * FROM users";
+
+        $get_user =$pdo->query($query);
+        $results = array();
+        While($row = $get_user->fetch(PDO::FETCH_ASSOC)) {
+            $results[]=$row;
+        }
+        return $results;
+    }
+
 ?>

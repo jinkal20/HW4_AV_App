@@ -1,1 +1,12 @@
+$dark-bg: #000000;
+$roku-purple: #6C3C97;
+//$roku-purple: black;
 
+@mixin vertical-align($position: relative) {
+    position: $position;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+  
